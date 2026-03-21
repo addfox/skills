@@ -1,9 +1,9 @@
 {
-  "name": "addmo-skills",
+  "name": "addfox-skills",
   "version": "1.0.0",
-  "description": "Addmo & browser extension development skills for AI agents. Add with: npx skills add addmo-dev/skills.",
+  "description": "Addfox & browser extension development skills for AI agents. Add with: npx skills add addfox/skills.",
   "keywords": [
-    "addmo",
+    "addfox",
     "browser-extension",
     "cursor",
     "skills",
@@ -13,6 +13,6 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/addmo-dev/skills"
+    "url": "https://github.com/addfox/skills"
   }
 }
