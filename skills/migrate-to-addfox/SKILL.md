@@ -1,20 +1,43 @@
 ---
 name: migrate-to-addfox
-description: Migrate from other extension frameworks (WXT, Plasmo, Extension.js/CRXJS, vanilla) to Addfox. Use when converting an existing extension project to Addfox or when the user mentions migration from another framework.
+description: >-
+  Port existing extensions to Addfox from WXT (entrypoints wxt.config), Plasmo (contents popup.tsx),
+  Extension.js / CRXJS (Vite + manifest), or vanilla (manual manifest + scripts). Map folders to app/background,
+  app/content, app/popup; replace config with addfox.config.ts and Rsbuild plugins; preserve behavior with incremental
+  addfox build validation. Often paired with extension-functions-best-practices for feature parity.
+metadata:
+  tags: addfox, migration, wxt, plasmo, extension-js, crxjs, vite, refactor, port, browser-extension
+---
+
+## When to use
+
+Use this skill when the user wants to **move an existing extension** to Addfox: "从 WXT/Plasmo 迁到 addfox", "migrate to addfox", "replace wxt.config with addfox", "CRXJS 换框架", or when comparing entry layout between Plasmo `contents/` and Addfox `app/content/`.
+
+Trigger examples:
+
+- Rewriting `wxt.config.ts` / `plasmo` / `vite` extension setup into **`addfox.config.ts`**
+- Mapping **entrypoints** or **src/** scripts to **`app/`** reserved directories
+- Same codebase, new bundler (Rsbuild) and output **`.addfox/extension`**
+- Post-migration feature work: **addfox-best-practices** (ongoing config/entries) + **extension-functions-best-practices** (video, AI, downloads, etc.)
+
+**Do not** use this skill for greenfield Addfox-only questions with no source framework (use **addfox-best-practices**).
+
+## How to use
+
+Follow the migration principles and steps in this file. Framework-specific mappings:
+
+- [references/wxt.md](references/wxt.md)
+- [references/plasmo.md](references/plasmo.md)
+- [references/extension-js.md](references/extension-js.md)
+- [references/no-framework.md](references/no-framework.md)
+
+After migration stabilizes, switch day-to-day work to **addfox-best-practices**.
+
 ---
 
 # Migrate to Addfox
 
-Apply when migrating from other extension frameworks (WXT, Plasmo, Extension.js/CRXJS, vanilla) to Addfox.
-
-## When to use
-
-Use this skill when:
-- Converting an existing extension from WXT, Plasmo, Extension.js, or vanilla to Addfox.
-- User mentions migration from another framework.
-- Porting entry structure, manifest, or config from another tool.
-- Need to map concepts between frameworks.
-- **Migrating specific extension features** (video, AI, etc.) that require implementation guidance.
+Port from WXT, Plasmo, Extension.js/CRXJS, or vanilla to Addfox.
 
 ---
 

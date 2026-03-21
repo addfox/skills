@@ -1,20 +1,35 @@
 ---
 name: addfox-testing
-description: Configure testing for Addfox extensions using Rstest for unit tests and Playwright for E2E extension loading. Use when setting up tests, writing unit tests for extension logic, or creating E2E tests that load the extension in a real browser.
+description: >-
+  Test Addfox browser extensions. Rstest (Rsbuild testing) for unit and component tests with jsdom/happy-dom;
+  mock chrome.* / browser.* APIs; Playwright E2E with chromium.launchPersistentContext, --load-extension pointing
+  at .addfox/extension, extension fixtures, popup chrome-extension:// URLs, CI scripts (addfox build && playwright test).
+metadata:
+  tags: addfox, testing, rstest, playwright, e2e, unit-test, jsdom, mock-chrome, browser-extension, webextension
+---
+
+## When to use
+
+Use this skill when the user or codebase needs **automated tests** for an Addfox extension: `rstest`, `*.test.ts` / `*.spec.ts`, `playwright.config.ts`, `e2e/` folder, mocking `chrome.storage` / `runtime.sendMessage`, or loading the unpacked build from `.addfox/extension` in a real browser.
+
+Trigger examples:
+
+- "给扩展加单元测试 / E2E / Playwright"
+- "mock chrome API", "rstest.config", "测试 background 消息"
+- "CI 里跑扩展测试", "coverage", "extension fixture"
+- Choosing **unit vs E2E** for popup, content script, or content UI
+
+Use **addfox-best-practices** for product architecture; use **addfox-debugging** if tests fail due to build or load errors.
+
+## How to use
+
+Follow sections below for Rstest setup, chrome mocks, and Playwright extension loading. Supplementary notes: [reference.md](reference.md).
+
 ---
 
 # Addfox Testing
 
-Apply when configuring testing for Addfox projects. Use **Rstest** for unit tests and **Playwright** for E2E extension loading.
-
-## When to use
-
-Use this skill when:
-- Setting up test infrastructure for an Addfox project.
-- Writing unit tests for extension utilities, background logic, or content script helpers.
-- Creating E2E tests that load the actual extension in Chrome/Firefox.
-- Choosing between unit tests and E2E tests for a feature.
-- Configuring test scripts in `package.json`.
+Use **Rstest** for unit tests and **Playwright** for E2E extension loading.
 
 ---
 

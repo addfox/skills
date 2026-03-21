@@ -1,22 +1,37 @@
 ---
 name: addfox-debugging
-description: Debug Addfox build errors and runtime issues. Use when terminal shows build failures, extension fails to load, content UI doesn't appear, hot reload not working, or when the user asks about debugging addfox projects, error.md, meta.md, or Rsdoctor reports.
+description: >-
+  Debug Addfox CLI and runtime. Interpret terminal output and .addfox/error.md (entry, location, message, stack,
+  front-end-framework), .addfox/meta.md, addfox build -r / dev -r Rsdoctor reports, extension load failures
+  (chrome://extensions, about:debugging), blank popup, content script not injecting, defineShadowContentUI not visible,
+  messaging sendMessage undefined, HMR/hot reload, duplicate React, MV3 service worker registration.
+metadata:
+  tags: addfox, debugging, build-error, error.md, meta.md, rsdoctor, hot-reload, hmr, browser-extension, troubleshooting
+---
+
+## When to use
+
+Use this skill **as soon as** something fails in an Addfox workflow: `addfox build` / `addfox dev` errors, user pastes stack traces, **`.addfox/error.md`** exists, extension does not load, popup is white screen, content UI never mounts, messages return `undefined`, or hot reload stopped updating.
+
+Trigger examples:
+
+- "addfox 构建失败", "Cannot find module", "Manifest validation"
+- "扩展加载不了", "popup 空白", "content script 没注入"
+- "defineShadowContentUI 不显示", "z-index", "CSP"
+- "热更新不生效", "Rsdoctor", "bundle 太大"
+- "Chrome 可以 Firefox 不行"
+
+For **correct patterns** (how config should look), use **addfox-best-practices** after unblocking. For **test flakiness**, use **addfox-testing**.
+
+## How to use
+
+Work through sections 1–7 below in order: terminal → `.addfox/error.md` → runtime reproduction → Rsdoctor if bundle-related. Extra context: [reference.md](reference.md).
+
 ---
 
 # Addfox Debugging
 
-Apply when debugging Addfox build or runtime issues. Read terminal output, `.addfox/error.md`, `.addfox/meta.md`, and Rsdoctor reports.
-
-## When to use
-
-Use this skill when:
-- Addfox build fails and terminal shows errors.
-- Extension loads but functions incorrectly (content script not injected, popup blank, messaging broken).
-- Hot reload not working during development.
-- Unclear error source (config, plugin, manifest, code).
-- Need to analyze build bundle or performance.
-- Content UI (shadow DOM/iframe) not appearing on page.
-- Cross-browser issues (Chrome vs Firefox).
+Read terminal output, `.addfox/error.md`, `.addfox/meta.md`, and Rsdoctor reports.
 
 ---
 

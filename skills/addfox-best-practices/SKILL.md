@@ -1,21 +1,47 @@
 ---
 name: addfox-best-practices
-description: Best practices for building browser extensions with the Addfox framework. Use when developing extensions with addfox, configuring manifest/entry/permissions, or when the user asks about addfox config, MV3, cross-browser (Chrome/Firefox), frameworks (Vue/React/Preact/Svelte/Solid), styles (CSS/Tailwind/UnoCSS/Sass/Less), extension messaging, or content UI (injecting DOM in web pages via defineShadowContentUI/defineIframeContentUI/defineContentUI).
+description: >-
+  Addfox + Rsbuild for Manifest V3 browser extensions. addfox.config.ts, manifest (chromium/firefox split),
+  file-based app/ entries (background service worker, content, popup, options, sidepanel, devtools, offscreen),
+  permissions and host_permissions, webextension-polyfill, UI frameworks (React Vue Preact Svelte Solid),
+  Tailwind v4 UnoCSS Sass Less, runtime messaging with a `from` field, content page UI via
+  defineShadowContentUI / defineIframeContentUI / defineContentUI from @addfox/utils, addfox dev/build CLI.
+metadata:
+  tags: addfox, browser-extension, webextension, manifest-v3, mv3, chrome-extension, firefox, rsbuild, addfox.config, content-script, service-worker, popup, sidepanel, messaging, shadow-dom, tailwind, crx
+---
+
+## When to use
+
+Use this skill **whenever** the project depends on Addfox (`addfox` in package.json, `addfox.config.ts`, `defineConfig` from `addfox`) **or** the user asks about building or configuring extensions with Addfox, Rsbuild plugin setup, `.addfox/extension` output, or MV3 extension architecture.
+
+Also load it when the user mentions any of the following (including synonyms):
+
+- **Config & manifest**: `addfox.config`, manifest fields, `host_permissions`, `web_accessible_resources`, Chrome vs Firefox manifest split, `appDir`, `outDir`, `zip`, `envPrefix`, `hotReload`, `report` / Rsdoctor
+- **Entries**: `app/background`, `app/content`, `app/popup`, `app/options`, `app/sidepanel`, custom `entry`, HTML template `data-addfox-entry`
+- **Cross-browser**: `webextension-polyfill`, `browser.*` API, `addfox dev -b` / `addfox build -b`
+- **UI on pages**: floating panel, inject UI into page, Shadow DOM, iframe UI, `@addfox/utils` content UI helpers
+- **Styles**: Tailwind v4 `@tailwindcss/postcss`, UnoCSS, scoped CSS in content scripts
+- **Feature-heavy extensions** (video, AI, downloads, etc.): use this skill **together with** `extension-functions-best-practices` for domain patterns
+
+**Do not** use this skill for pure migration from WXT/Plasmo (use **migrate-to-addfox**), for test setup (use **addfox-testing**), or for build/runtime failures (use **addfox-debugging** first if the user pasted errors).
+
+## How to use
+
+Read this file for end-to-end patterns. For focused rules, open:
+
+- [rules/manifest-fields.md](rules/manifest-fields.md) — manifest keys and Addfox-specific behavior
+- [rules/permissions.md](rules/permissions.md) — permission choices and least-privilege patterns
+- [rules/messaging.md](rules/messaging.md) — message shapes, async responses, tab vs runtime messaging
+- [rules/content-ui.md](rules/content-ui.md) — `defineShadowContentUI`, iframe UI, mount timing
+- [reference.md](reference.md) — CLI, config table, cross-platform notes
+
+Related skills: [addfox-debugging](../addfox-debugging/SKILL.md), [addfox-testing](../addfox-testing/SKILL.md), [migrate-to-addfox](../migrate-to-addfox/SKILL.md), [extension-functions-best-practices](../extension-functions-best-practices/SKILL.md).
+
 ---
 
 # Addfox Best Practices
 
-Apply when using Addfox to develop browser extensions. Covers entry, config, manifest, permissions, cross-platform, UI frameworks, styles, and messaging.
-
-## When to use
-
-Use this skill when:
-- Configuring or extending an Addfox project (addfox.config, manifest, entry).
-- Choosing or implementing permissions, content scripts, background, popup/options.
-- Targeting Chrome and Firefox; choosing UI framework or styling approach.
-- Implementing messaging between background, content, and popup/options.
-- Creating content UI or injecting DOM into web pages (use Addfox's built-in content UI helpers).
-- **Implementing extension features like video/audio/image processing, AI integration, etc.** (also see extension-functions-best-practices skill).
+Covers entry discovery, config, manifest, permissions, cross-platform APIs, UI frameworks, styles, messaging, and content UI.
 
 ---
 
