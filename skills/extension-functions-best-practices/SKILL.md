@@ -1,6 +1,6 @@
 ---
 name: extension-functions-best-practices
-description: Best practices for implementing browser extension features across 13 categories. Reference this skill when developing video, audio, image, translation, download, userscript, AI, ad-blocker, theme, email, game, password manager, or Web3 wallet features.
+description: Best practices for implementing browser extension features across 13 categories. Reference this skill when developing video, audio, image, translation, download, userscript, AI (including Chrome built-in AI / Gemini Nano), ad-blocker, theme, email, game, password manager, or Web3 wallet features.
 ---
 
 # Extension Functions Best Practices
@@ -14,6 +14,12 @@ Implementation guidance for browser extension features across 13 categories. Eac
 - Choosing libraries and APIs for specific functionality
 - Understanding permission requirements
 
+## How Reference Projects Are Chosen
+
+- **Verifiable**: Prefer projects you can install from a store, or build into a loadable extension from GitHub, with real Issues/Releases.
+- **Behavior-aligned**: Table **Highlights** describe user-visible behavior (e.g. “merge HLS segments”) rather than only “call the downloads API”.
+- **Download / streaming**: Tutorial-style `chrome.downloads` + an `m3u8` URL is often **not** enough for a playable file; treat [rules/download.md](rules/download.md) (“Reality check & common pitfalls”) and repos such as **Cat Catch**, **Live Stream Downloader**, and **Video DownloadHelper** as the ground truth.
+
 ---
 
 ## Feature Categories
@@ -23,9 +29,11 @@ Implementation guidance for browser extension features across 13 categories. Eac
 
 | Reference Projects | Type | Highlights |
 |-------------------|------|------------|
-| [Video Roll](https://github.com/VideoRoll/VideoRoll) | Enhancement | Rotation, zoom, filters, VR mode |
-| [Cat Catch](https://github.com/xifangczy/cat-catch) | Download | M3U8/MPD sniffing, external downloader support |
-| [HLS Downloader](https://github.com/puemos/hls-downloader) | Download | HLS stream detection |
+| [Video Roll](https://github.com/VideoRoll/VideoRoll) | Enhancement | Rotation, zoom, filters, VR mode (in-page `<video>` UX) |
+| [Cat Catch](https://github.com/xifangczy/cat-catch) | Download | Sniffing, M3U8/MPD parsing, handoff to N_m3u8DL-RE and similar (high activity) |
+| [Live Stream Downloader](https://github.com/chandler-stimson/live-stream-downloader) | Download | In-extension HLS detection and multi-threaded merge to disk (store build for comparison) |
+| [Video DownloadHelper](https://github.com/aclap-dev/video-downloadhelper) | Download | General sniffing + [vdhcoapp](https://github.com/aclap-dev/vdhcoapp) companion (production-grade OSS core) |
+| [HLS Downloader](https://github.com/puemos/hls-downloader) | Download | HLS detection and download flow |
 | [Screenity](https://github.com/alyssaxuu/screenity) | Recording | Screen/camera recording with annotations |
 
 **Key Libraries**: Mediabunny (lightweight media processing), Native MediaRecorder API
@@ -55,6 +63,8 @@ Implementation guidance for browser extension features across 13 categories. Eac
 |-------------------|------|------------|
 | [Image Downloader](https://github.com/PactInteractive/image-downloader) | Download | Batch download with filtering |
 | [Pic-Grabber](https://github.com/venopyx/pic-grabber) | Download | Shadow DOM, lazy-load support |
+| [screenshot-extension](https://github.com/lxieyang/screenshot-extension) | Screenshot | Full-page / region capture flow (MIT) |
+| [webpage-screenshot](https://github.com/Aminadav/webpage-screenshot) | Screenshot | Classic full-page capture (ISC) |
 
 **Key Techniques**: Canvas processing, Shadow DOM traversal, chrome.tabs.captureVisibleTab
 
@@ -84,9 +94,11 @@ Implementation guidance for browser extension features across 13 categories. Eac
 
 | Reference Projects | Type | Highlights |
 |-------------------|------|------------|
-| [Cat Catch](https://github.com/xifangczy/cat-catch) | Sniffing | Resource detection, M3U8 parsing |
-| [Stream Detector](https://github.com/54ac/stream-detector) | Detection | Cookie export for downloaders |
-| [Turbo Download Manager](https://github.com/inbasic/turbo-download-manager-v2) | Manager | Multi-threading, resume |
+| [Cat Catch](https://github.com/xifangczy/cat-catch) | Sniffing | Resource sniffing, M3U8/MPD, external downloaders (end-to-end “finish the file”) |
+| [Live Stream Downloader](https://github.com/chandler-stimson/live-stream-downloader) | HLS | Merge segments in-extension vs. `chrome.downloads` saving only the playlist |
+| [Video DownloadHelper](https://github.com/aclap-dev/video-downloadhelper) | Sniffing + app | Browser + native companion |
+| [Stream Detector](https://github.com/54ac/stream-detector) | Detection | Export cookies for aria2 / yt-dlp, etc. |
+| [Turbo Download Manager v2](https://github.com/inbasic/turbo-download-manager-v2) | Manager | Multi-connection, resume (direct URLs / files) |
 
 **External Tools**: N_m3u8DL-RE, yt-dlp, aria2
 
@@ -114,13 +126,17 @@ Implementation guidance for browser extension features across 13 categories. Eac
 
 | Reference Projects | Type | Highlights |
 |-------------------|------|------------|
-| [BrainyAI](https://github.com/luyu0279/BrainyAI) | Sidebar | Multi-AI aggregation |
-| [ChatGPT Box](https://github.com/josStorer/chatGPTBox) | Integration | Deep browser integration |
-| [Scroll](https://github.com/asker-kurtelli/scroll) | Navigation | Chat navigation for LLM platforms |
+| [BrainyAI](https://github.com/luyu0279/BrainyAI) | Sidebar | Multi-model sidebar (check Issues/Releases for maintenance) |
+| [ChatGPT Box](https://github.com/josStorer/chatGPTBox) | Integration | Selection, summarize, site integrations (GPL-3.0, buildable reference) |
+| [Scroll](https://github.com/asker-kurtelli/scroll) | Navigation | LLM web UI navigation helpers (MIT) |
 
-**Key APIs**: OpenAI API, Google Gemini API, Anthropic Claude API, Ollama (local)
+**Chrome built-in AI (on-device)**: [Extensions and AI](https://developer.chrome.com/docs/extensions/ai) — Prompt, Summarizer, Translator, Language Detector, Writer, Rewriter, Proofreader ([status table](https://developer.chrome.com/docs/ai/built-in-apis)). Official samples: [ai.gemini-on-device](https://github.com/GoogleChrome/chrome-extensions-samples/tree/main/functional-samples/ai.gemini-on-device), [ai.gemini-on-device-summarization](https://github.com/GoogleChrome/chrome-extensions-samples/tree/main/functional-samples/ai.gemini-on-device-summarization).
 
-**SDKs**: Vercel AI SDK, LangChain.js, LlamaIndex (TypeScript)
+**Built-in AI implementation guide**: [rules/chrome-built-in-ai.md](rules/chrome-built-in-ai.md)
+
+**Key APIs**: OpenAI API, Google Gemini API, Anthropic Claude API, Ollama (local); **built-in**: `LanguageModel` (Prompt API), `Summarizer`, `Translator`, `LanguageDetector`, etc. ([docs](https://developer.chrome.com/docs/ai/built-in-apis))
+
+**SDKs**: Vercel AI SDK, LangChain.js, LlamaIndex (TypeScript); typings: [`@types/dom-chromium-ai`](https://www.npmjs.com/package/@types/dom-chromium-ai)
 
 **Implementation Guide**: [rules/ai.md](rules/ai.md)
 
@@ -159,7 +175,8 @@ Implementation guidance for browser extension features across 13 categories. Eac
 
 | Reference Projects | Type | Highlights |
 |-------------------|------|------------|
-| [Mail Checker Plus](https://github.com/AndersSahlin/MailCheckerPlus) | Gmail | Preview, quick actions |
+| [Mail Checker Plus](https://github.com/AndersSahlin/MailCheckerPlus) | Gmail | Unread badge, list preview, mark read, etc. (GPL-3.0, Gmail API reference) |
+| [gmail-api-chrome-extension](https://github.com/anatelli10/gmail-api-chrome-extension) | Gmail API | Minimal OAuth + Gmail REST sample (MIT, auth flow learning) |
 
 **Key APIs**: Gmail API, chrome.identity
 
@@ -201,6 +218,7 @@ Implementation guidance for browser extension features across 13 categories. Eac
 |-------------------|------|------------|
 | [MetaMask](https://github.com/MetaMask/metamask-extension) | Wallet | Industry standard, EIP-1193 |
 | [Rabby](https://github.com/RabbyHub/Rabby) | Wallet | Multi-chain, transaction simulation |
+| [Rainbow](https://github.com/rainbow-me/browser-extension) | Wallet | Extension source (distinct from mobile app repo) |
 
 **Key Libraries**: ethers.js, viem
 

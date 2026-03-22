@@ -1,5 +1,14 @@
 # Email Features Implementation Guide
 
+## Community-verified reference implementations
+
+| Capability | User-visible outcome | Repo |
+|------------|----------------------|------|
+| Gmail unread, list preview, quick actions | Full `chrome.identity` + Gmail API loop | [MailCheckerPlus](https://github.com/AndersSahlin/MailCheckerPlus) |
+| Minimal Gmail API + OAuth sample | Learn tokens and REST from scratch | [gmail-api-chrome-extension](https://github.com/anatelli10/gmail-api-chrome-extension) |
+
+**Note**: Gmail API quotas and OAuth consent screens are configured in Google Cloud Console; Mail Checker Plus is a non-toy integration reference.
+
 ## Common Feature Types
 
 - **Email Notifications**: Desktop notifications for new emails
@@ -226,7 +235,7 @@ document.addEventListener('click', async (e) => {
 | Project | Features | GitHub |
 |---------|----------|--------|
 | Mail Checker Plus | Gmail preview, quick actions | https://github.com/AndersSahlin/MailCheckerPlus |
-| Google Mail Checker | Official, lightweight | Google |
+| gmail-api-chrome-extension | Minimal Gmail API + OAuth sample | https://github.com/anatelli10/gmail-api-chrome-extension |
 
 ## Gmail API Quotas
 

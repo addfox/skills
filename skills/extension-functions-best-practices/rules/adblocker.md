@@ -1,5 +1,15 @@
 # Ad Blocker Implementation Guide
 
+## Community-verified reference implementations
+
+| Capability | User-visible outcome | Repo |
+|------------|----------------------|------|
+| Efficient engine + dynamic rules + cosmetic filtering | With EasyList-style lists, fewer ads and trackers | [uBlock](https://github.com/gorhill/uBlock) |
+| Heuristic tracker protection | Learns and blocks trackers as you browse | [privacybadger](https://github.com/EFForg/privacybadger) |
+| Commercial-grade OSS extension | Feature layering aligned with AdGuard products | [AdguardBrowserExtension](https://github.com/AdguardTeam/AdguardBrowserExtension) |
+
+**Note**: MV3 caps rule counts; uBO and peers ship **production** `declarativeNetRequest`, rule compilation, and performance code—prefer them over tutorial filter pseudocode.
+
 ## Common Feature Types
 
 - **Ad Blocking**: Prevent ad loading

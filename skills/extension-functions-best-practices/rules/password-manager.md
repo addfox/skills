@@ -1,5 +1,14 @@
 # Password Manager Implementation Guide
 
+## Community-verified reference implementations
+
+| Capability | User-visible outcome | Repo |
+|------------|----------------------|------|
+| Cloud vault + all clients (incl. extension) | Autofill, TOTP, org policies, etc. | [bitwarden/clients](https://github.com/bitwarden/clients) |
+| Local KeePass DB bridge | Secure channel to KeePassXC desktop | [keepassxc-browser](https://github.com/keepassxreboot/keepassxc-browser) |
+
+**Note**: Use Web Crypto (see below); before building your own vault, study autofill logic, iframe detection, and native messaging in these repos.
+
 ## Common Feature Types
 
 - **Password Storage**: Secure credential storage

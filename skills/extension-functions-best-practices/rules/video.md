@@ -1,5 +1,19 @@
 # Video Features Implementation Guide
 
+## Store- and community-verified reference implementations
+
+| Area | User-visible outcome | Repo |
+|------|----------------------|------|
+| In-page video UX (rotate/zoom/filters, etc.) | Live transforms on `<video>`, many sites | [VideoRoll](https://github.com/VideoRoll/VideoRoll) |
+| Site-specific enhancement (see repo) | Player UI / behavior tweaks | [YouTube-Enhancer](https://github.com/YouTube-Enhancer/extension) |
+| Sniffing + parsing + external downloader | Hand M3U8/MPD to N_m3u8DL-RE, etc. | [cat-catch](https://github.com/xifangczy/cat-catch) |
+| In-extension HLS download + merge | Pick quality → playable local file (non-DRM) | [live-stream-downloader](https://github.com/chandler-stimson/live-stream-downloader) |
+| HLS-focused detection + download | Detect page HLS and run download flow | [hls-downloader](https://github.com/puemos/hls-downloader) |
+| Mature sniffing + native companion | Convert/merge with vdhcoapp, etc. | [video-downloadhelper](https://github.com/aclap-dev/video-downloadhelper) |
+| Recording + annotations | Record tab/screen and export | [Screenity](https://github.com/alyssaxuu/screenity) |
+
+**Downloads**: `chrome.downloads.download(m3u8Url)` alone is usually **not** a successful video download; you need segment fetch + merge or external tools—see [rules/download.md](download.md).
+
 ## Common Feature Types
 
 - **Video Experience Enhancement**: Rotation, zoom, speed control, volume boost, filters, screenshot, Picture-in-Picture
@@ -70,7 +84,7 @@ video.addEventListener('enterpictureinpicture', (e) => {
 ### Media Sniffing
 
 ```javascript
-// MV2: webRequest API
+// MV2: webRequest API (MV2 only; observes URLs; MP4 direct vs HLS playlist need different follow-up)
 chrome.webRequest.onBeforeRequest.addListener(
   (details) => {
     if (isVideoUrl(details.url)) {
@@ -80,8 +94,8 @@ chrome.webRequest.onBeforeRequest.addListener(
   { urls: ['<all_urls>'], types: ['media', 'xmlhttprequest'] }
 );
 
-// MV3: declarativeNetRequest (limited)
-// Use content script to intercept fetch/XHR instead
+// MV3: No equivalent global webRequest observer. For production patterns see the repos above
+// (e.g. DNR, devtools, page injection, Native Messaging combinations).
 ```
 
 ### M3U8/MPD Parsing
@@ -148,11 +162,12 @@ recorder.start();
 
 ## Best Practices
 
-1. **Respect Copyright**: Do not download from sites that prohibit it (e.g., YouTube)
-2. **Memory Management**: Stream large downloads, don't buffer entirely in memory
-3. **CORS Handling**: Some videos may have cross-origin restrictions
-4. **Performance**: Throttle video detection to avoid layout thrashing
-5. **MV3 Compatibility**: Use offscreen documents for audio processing
+1. **Compliance & DRM**: Separate “enhance playback” from “download”; EME/Widevine or site policy may make lawful decryption-by-extension impossible.
+2. **HLS/DASH**: Playlist URL ≠ finished file; follow parsing, segmenting, and merge strategies in Cat Catch, Live Stream Downloader, Video DownloadHelper, etc.
+3. **Memory management**: Stream large downloads; avoid buffering entire files in memory.
+4. **CORS / auth headers**: Direct URL downloads often need Referer, Cookie, etc.; missing headers → empty files or 403.
+5. **Performance**: Throttle video-node scanning to avoid layout thrash.
+6. **MV3**: Use offscreen for audio processing where needed; network sniffing must use MV3-viable architecture—do not assume blocking `webRequest`.
 
 ## Reference Projects
 
@@ -160,6 +175,8 @@ recorder.start();
 |---------|------|--------|
 | Video Roll | Enhancement | https://github.com/VideoRoll/VideoRoll |
 | YouTube Enhancer | Enhancement | https://github.com/YouTube-Enhancer/extension |
-| Cat Catch | Download | https://github.com/xifangczy/cat-catch |
-| HLS Downloader | Download | https://github.com/puemos/hls-downloader |
+| Cat Catch | Download / sniffing | https://github.com/xifangczy/cat-catch |
+| Live Stream Downloader | Download / HLS merge | https://github.com/chandler-stimson/live-stream-downloader |
+| HLS Downloader | Download / HLS | https://github.com/puemos/hls-downloader |
+| Video DownloadHelper | Download / companion app | https://github.com/aclap-dev/video-downloadhelper |
 | Screenity | Recording | https://github.com/alyssaxuu/screenity |

@@ -1,5 +1,20 @@
 # AI Features Implementation Guide
 
+## Community-verified reference implementations
+
+| Capability | User-visible outcome | Repo |
+|------------|----------------------|------|
+| Multi-model sidebar / aggregation | Chat and switch models after build (per README) | [BrainyAI](https://github.com/luyu0279/BrainyAI) |
+| Deep page integration (selection, menus, summarize) | Integrations with ChatGPT and other UIs | [chatGPTBox](https://github.com/josStorer/chatGPTBox) |
+| LLM web UI navigation | Easier navigation on long chat pages | [scroll](https://github.com/asker-kurtelli/scroll) |
+| Multi-service sidebar template | Shortcuts, side panel skeleton | [AI-Side-Panel-Extension](https://github.com/creosB/AI-Side-Panel-Extension) |
+
+**Do not cite unverifiable “placeholder” repos**: no clear history, no build docs, suspicious stars/forks, or anonymous authors—such links have been mistaken for spam before. **Verify** with `pnpm`/`npm i`, a loadable extension build, and real Issues from users.
+
+### Chrome built-in AI (Gemini Nano in the browser)
+
+For **on-device** APIs (`LanguageModel` / Prompt API, `Summarizer`, `Translator`, `LanguageDetector`, Writer, Rewriter, Proofreader), use the dedicated guide with official doc links, API list, manifest snippet, and minimal samples: **[rules/chrome-built-in-ai.md](chrome-built-in-ai.md)**.
+
 ## Common Feature Types
 
 - **AI Sidebar**: Browser side panel with AI chat
@@ -328,10 +343,10 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
 
 | Project | Features | GitHub |
 |---------|----------|--------|
-| BrainyAI | Multi-AI sidebar, free | https://github.com/luyu0279/BrainyAI |
+| BrainyAI | Multi-AI sidebar | https://github.com/luyu0279/BrainyAI |
 | ChatGPT Box | Deep integration, summarization | https://github.com/josStorer/chatGPTBox |
-| Chatbot Extension | Minimal sidebar template | https://github.com/x91823903819038219083190/chatbot-extension |
-| AI Side Panel | Multi-service, shortcuts | https://github.com/creosB/AI-Side-Panel-Extension |
+| Scroll | LLM page navigation | https://github.com/asker-kurtelli/scroll |
+| AI Side Panel Extension | Multi-service, shortcuts | https://github.com/creosB/AI-Side-Panel-Extension |
 
 ## Local AI Option
 

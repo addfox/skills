@@ -1,5 +1,13 @@
 # Game Enhancement Implementation Guide
 
+## Community-verified reference implementations
+
+| Capability | User-visible outcome | Repo |
+|------------|----------------------|------|
+| WASM game memory search / edit / breakpoints | Cheat Engine–like workflow in the browser (offline/single-player) | [Cetus](https://github.com/Qwokka/Cetus) |
+
+**Compliance**: Use only offline, single-player, or authorized research; online cheating may violate law and ToS. The repo above implements real DevTools-style WASM inspection and memory views.
+
 ## Common Feature Types
 
 - **WebAssembly Game Modification**: Memory editing, cheating

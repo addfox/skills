@@ -1,5 +1,17 @@
 # Image Features Implementation Guide
 
+## Community-verified reference implementations
+
+| Capability | User-visible outcome | Repo |
+|------------|----------------------|------|
+| Batch scrape, filter, download images | List, filter, bulk `downloads` | [image-downloader](https://github.com/PactInteractive/image-downloader) |
+| Shadow DOM / lazy-loaded images | Deep nodes, `data-src`-style attrs | [pic-grabber](https://github.com/venopyx/pic-grabber) |
+| One-click save images | Single/double-click download (per README) | [One-Click-Image-Downloader](https://github.com/Ratna-Babu/One-Click-Image-Downloader) |
+| Full-page or region screenshot | Long-page stitch or selection | [screenshot-extension](https://github.com/lxieyang/screenshot-extension) |
+| Full-page screenshot (classic) | Scroll-and-stitch flow | [webpage-screenshot](https://github.com/Aminadav/webpage-screenshot) |
+
+**Note**: Cross-origin images without CORS taint canvases; production extensions combine `captureVisibleTab`, scroll stitching, `html2canvas`, etc.—use these repos for permissions and architecture.
+
 ## Common Feature Types
 
 - **Image Download**: Batch download, gallery download, background image extraction
@@ -360,4 +372,4 @@ async function annotateScreenshot(dataUrl) {
 |---------|----------|--------|
 | Image Downloader | Batch download, filtering | https://github.com/PactInteractive/image-downloader |
 | Pic-Grabber | Lazy-load, Shadow DOM support | https://github.com/venopyx/pic-grabber |
-| OneClick Image Downloader | One-click, dataset creation | https://github.com/Sytheflay1/oneclick-image-downloader-extension |
+| One-Click Image Downloader | One/double-click save | https://github.com/Ratna-Babu/One-Click-Image-Downloader |

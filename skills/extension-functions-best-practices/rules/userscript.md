@@ -1,5 +1,17 @@
 # Userscript Manager Implementation Guide
 
+## Community-verified reference implementations
+
+| Capability | User-visible outcome | Repo |
+|------------|----------------------|------|
+| Userscript manager (de facto standard) | Install/update scripts, `@grant` APIs | [Tampermonkey](https://github.com/Tampermonkey/tampermonkey) |
+| Open-source manager | Violentmonkey ecosystem | [violentmonkey](https://github.com/violentmonkey/violentmonkey) |
+| Firefox-native direction | Greasemonkey compatibility | [greasemonkey](https://github.com/greasemonkey/greasemonkey) |
+| Background scripts / extended features | Per ScriptCat README | [scriptcat](https://github.com/scriptscat/scriptcat) |
+| Modern build + HMR | Develop userscripts with Vite | [vite-plugin-monkey](https://github.com/lisonge/vite-plugin-monkey) |
+
+**Note**: `GM_xmlhttpRequest` and similar require proxying from background/service worker; naive `eval` of user code raises security and CSP issues—these manager repos show architectures that **actually run scripts safely**.
+
 ## Common Feature Types
 
 - **Script Manager**: Install, update, execute userscripts

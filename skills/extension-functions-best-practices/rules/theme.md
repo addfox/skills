@@ -1,5 +1,15 @@
 # Theme/Dark Mode Implementation Guide
 
+## Community-verified reference implementations
+
+| Capability | User-visible outcome | Repo |
+|------------|----------------------|------|
+| Global dark mode, dynamic analysis, fix media inversion | Readable dark theme on most sites | [darkreader](https://github.com/darkreader/darkreader) |
+| UserCSS manager, community styles | Per-site user CSS injection | [stylus](https://github.com/openstyles/stylus) |
+| Fine-grained color schemes | Custom palettes and scheduling | [Midnight-Lizard](https://github.com/Midnight-Lizard/Midnight-Lizard) |
+
+**NPM**: [`darkreader`](https://www.npmjs.com/package/darkreader) matches the main repo algorithms; reuse the dynamic theming pipeline in your own extension.
+
 ## Common Feature Types
 
 - **Dark Mode**: Automatic/forced dark theme

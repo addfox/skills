@@ -1,5 +1,16 @@
 # Translation Features Implementation Guide
 
+## Community-verified reference implementations
+
+| Capability | User-visible outcome | Repo |
+|------------|----------------------|------|
+| Bilingual page, PDF, multiple engines | Major sites + PDF flows | [immersive-translate](https://github.com/immersive-translate/immersive-translate) |
+| Selection + AI explanations | Reading-focused AI assist | [read-frog](https://github.com/mengxi-ream/read-frog) |
+| Standalone popup, multiple providers | Selection translate, writing assist | [openai-translator](https://github.com/openai-translator/openai-translator) |
+| Lightweight full-page translation | Classic page translate UX (Firefox/Chrome) | [Traducao-Paginas-Web](https://github.com/FilipePS/Traducao-Paginas-Web) |
+
+**Note**: API keys, quotas, and privacy policies are per project; these repos show full UI + messaging for Readability + remote API patterns.
+
 ## Common Feature Types
 
 - **Page Translation**: Full page translation, bilingual display

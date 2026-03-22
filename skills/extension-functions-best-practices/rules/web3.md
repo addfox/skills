@@ -1,5 +1,15 @@
 # Web3 Wallet Implementation Guide
 
+## Community-verified reference implementations
+
+| Capability | User-visible outcome | Repo |
+|------------|----------------------|------|
+| EIP-1193 provider, signing, network switching | De facto DApp compatibility baseline | [metamask-extension](https://github.com/MetaMask/metamask-extension) |
+| Multi-chain, tx preview / simulation | Pre-execution hints, signing UI | [Rabby](https://github.com/RabbyHub/Rabby) |
+| Modern wallet UI (alternate style) | Rainbow product extension source | [rainbow browser-extension](https://github.com/rainbow-me/browser-extension) |
+
+**Note**: Private keys never leave the background; `window.ethereum` injection and content/background bridges in these repos are production-grade references.
+
 ## Common Feature Types
 
 - **Wallet Management**: Account creation, import, key storage
@@ -318,6 +328,7 @@ function showTransactionPopup(txParams) {
 |---------|----------|--------|
 | MetaMask | Industry standard | https://github.com/MetaMask/metamask-extension |
 | Rabby | Multi-chain, transaction simulation | https://github.com/RabbyHub/Rabby |
+| Rainbow | Wallet UI / injection patterns | https://github.com/rainbow-me/browser-extension |
 
 ## Libraries
 

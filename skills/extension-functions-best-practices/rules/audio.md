@@ -1,5 +1,15 @@
 # Audio Features Implementation Guide
 
+## Community-verified reference implementations
+
+| Capability | User-visible outcome | Repo |
+|------------|----------------------|------|
+| Boost in-page media volume (e.g. per-domain memory) | Gain on `<video>` / `<audio>` above 100% | [Better-Volume-Booster](https://github.com/zWolfrost/Better-Volume-Booster) |
+| Per-tab volume + shortcuts | Per-tab slider, hotkeys | [tab-volume](https://github.com/wokalek/tab-volume) |
+| Firefox volume boost | Louder audio in-browser | [volumecontrol](https://github.com/Chaython/volumecontrol) |
+
+**Limits**: `tabCapture` is Chromium-centric; DRM (e.g. Netflix) cannot be “boosted” via Web Audio on decrypted output.
+
 ## Common Feature Types
 
 - **Volume Boost**: Amplify volume beyond 100% limit

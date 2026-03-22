@@ -17,9 +17,10 @@ Comprehensive reference of open-source projects, libraries, and APIs for browser
 
 | Project | GitHub | License | Notes |
 |---------|--------|---------|-------|
-| Cat Catch | https://github.com/xifangczy/cat-catch | GPL-3.0 | Media sniffing, M3U8/MPD parser |
+| Cat Catch | https://github.com/xifangczy/cat-catch | GPL-3.0 | Sniffing, M3U8/MPD, external downloaders; actively maintained |
+| Live Stream Downloader | https://github.com/chandler-stimson/live-stream-downloader | MPL-2.0 | In-extension HLS detect + merge; store build to compare behavior |
+| Video DownloadHelper | https://github.com/aclap-dev/video-downloadhelper | - | Mature sniffing; companion https://github.com/aclap-dev/vdhcoapp |
 | HLS Downloader | https://github.com/puemos/hls-downloader | MIT | HLS stream download |
-| Live Stream Downloader | https://github.com/chandler-stimson/live-stream-downloader | MPL-2.0 | Sequential stream download |
 | Stream Detector | https://github.com/54ac/stream-detector | GPL-3.0 | Cookie export, stream detection |
 
 ### Recording
@@ -58,6 +59,8 @@ Comprehensive reference of open-source projects, libraries, and APIs for browser
 | Image Downloader | https://github.com/PactInteractive/image-downloader | MIT | Batch download, filtering |
 | Pic-Grabber | https://github.com/venopyx/pic-grabber | MIT | Shadow DOM support |
 | Image Downloader Continued | https://github.com/kisdma/image-downloader-cnt | MIT | Fork with bug fixes |
+| screenshot-extension | https://github.com/lxieyang/screenshot-extension | MIT | Full/partial page screenshot reference |
+| webpage-screenshot | https://github.com/Aminadav/webpage-screenshot | ISC | Classic full-page capture |
 
 ### Screenshot Libraries
 
@@ -114,17 +117,39 @@ Comprehensive reference of open-source projects, libraries, and APIs for browser
 
 ---
 
+## Chrome built-in AI (official)
+
+| Resource | URL | Notes |
+|----------|-----|-------|
+| Extensions and AI | https://developer.chrome.com/docs/extensions/ai | Hub for extension + on-device AI |
+| Built-in AI APIs (status) | https://developer.chrome.com/docs/ai/built-in-apis | Web vs extensions, Chrome version, trials |
+| Prompt API | https://developer.chrome.com/docs/ai/prompt-api | `LanguageModel`, Gemini Nano, extension-specific notes |
+| Summarizer API | https://developer.chrome.com/docs/ai/summarizer-api | |
+| Translator API | https://developer.chrome.com/docs/ai/translator-api | |
+| Language Detector API | https://developer.chrome.com/docs/ai/language-detection | |
+| Writer API | https://developer.chrome.com/docs/ai/writer-api | |
+| Rewriter API | https://developer.chrome.com/docs/ai/rewriter-api | |
+| Proofreader API | https://developer.chrome.com/docs/ai/proofreader-api | |
+| TS typings | https://www.npmjs.com/package/@types/dom-chromium-ai | |
+| Sample: Prompt (side panel) | https://github.com/GoogleChrome/chrome-extensions-samples/tree/main/functional-samples/ai.gemini-on-device | |
+| Sample: Summarizer | https://github.com/GoogleChrome/chrome-extensions-samples/tree/main/functional-samples/ai.gemini-on-device-summarization | |
+
+Skill guide: [rules/chrome-built-in-ai.md](rules/chrome-built-in-ai.md) in this repository.
+
+---
+
 ## AI Integration
 
 | Project | GitHub | License | Notes |
 |---------|--------|---------|-------|
 | BrainyAI | https://github.com/luyu0279/BrainyAI | - | Multi-AI sidebar |
 | ChatGPT Box | https://github.com/josStorer/chatGPTBox | GPL-3.0 | Deep integration |
-| Chatbot Extension | https://github.com/x91823903819038219083190/chatbot-extension | - | Minimal template |
 | AI Side Panel Extension | https://github.com/creosB/AI-Side-Panel-Extension | - | Multi-service support |
 | Scroll | https://github.com/asker-kurtelli/scroll | MIT | Chat navigation |
 | Threadly | https://github.com/evinjohnn/Threadly | - | Prompt optimization |
 | insidebar-ai | https://github.com/xiaolai/insidebar-ai | - | Text-to-AI |
+
+**Policy**: Do not list unverifiable “placeholder” repos. Before adding an entry, confirm you can build a loadable extension and find real user Issues.
 
 ### AI SDKs
 
@@ -178,7 +203,7 @@ npm install darkreader
 | Project | GitHub | License | Notes |
 |---------|--------|---------|-------|
 | Mail Checker Plus | https://github.com/AndersSahlin/MailCheckerPlus | GPL-3.0 | Gmail preview, quick actions |
-| Google Mail Checker | - | - | Firefox port available |
+| gmail-api-chrome-extension | https://github.com/anatelli10/gmail-api-chrome-extension | MIT | Minimal OAuth + Gmail API sample |
 
 ### APIs
 - **Gmail API**: https://developers.google.com/gmail/api/reference/rest
@@ -219,7 +244,7 @@ npm install darkreader
 |---------|--------|---------|-------|
 | MetaMask | https://github.com/MetaMask/metamask-extension | - | Industry standard |
 | Rabby | https://github.com/RabbyHub/Rabby | - | Multi-chain, simulation |
-| Rainbow | https://github.com/rainbow-me/rainbow | - | Mobile + extension |
+| Rainbow (browser extension) | https://github.com/rainbow-me/browser-extension | - | Extension source (distinct from mobile app repo) |
 
 ### Libraries
 - **ethers.js**: https://docs.ethers.org/
