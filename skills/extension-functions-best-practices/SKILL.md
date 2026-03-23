@@ -1,5 +1,6 @@
 ---
 name: extension-functions-best-practices
+version: 0.1.0
 description: Best practices for implementing browser extension features across 13 categories. Reference this skill when developing video, audio, image, translation, download, userscript, AI (including Chrome built-in AI / Gemini Nano), ad-blocker, theme, email, game, password manager, or Web3 wallet features.
 ---
 
