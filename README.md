@@ -2,7 +2,7 @@
 
 A standalone skill library for AI agents building browser extensions with the [Addfox](https://github.com/addfox/addfox) framework. Use the [skills CLI](https://github.com/vercel-labs/skills) to add these skills with **`npx skills add`**.
 
-**[中文说明](README-zh_CN.md)**
+**[Chinese Documentation (English version)](README-zh_CN.md)**
 
 ## Install
 

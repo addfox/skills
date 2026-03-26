@@ -1,6 +1,6 @@
 ---
 name: addfox-debugging
-version: 0.1.0
+version: 0.1.1
 description: Debug Addfox build and runtime issues, including terminal failures, manifest errors, extension loading issues, and context messaging problems.
 metadata:
   tags: addfox, debugging, build-error, troubleshooting, browser-extension

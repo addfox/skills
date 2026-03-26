@@ -1,6 +1,6 @@
 ---
 name: addfox-best-practices
-version: 0.1.0
+version: 0.1.1
 description: Best practices for building browser extensions with the Addfox framework. Use when developing extensions with Addfox, configuring manifest/entry/permissions, or when discussing MV3, cross-browser support, framework/styling choices, messaging, and content UI injection.
 ---
 

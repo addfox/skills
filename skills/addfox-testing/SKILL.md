@@ -1,6 +1,6 @@
 ---
 name: addfox-testing
-version: 0.1.0
+version: 0.1.1
 description: Test Addfox extensions with Rstest for unit/component tests and Playwright for end-to-end extension loading.
 metadata:
   tags: addfox, testing, rstest, playwright, e2e, unit-test, browser-extension

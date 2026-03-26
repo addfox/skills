@@ -1,6 +1,6 @@
 ---
 name: convert-web-pages-to-browser-extensions
-version: 0.1.0
+version: 0.1.1
 description: Convert any frontend webpage into a browser extension entry page with an HTML entry. Supports popup, options, sidepanel, devtools, newtab, bookmarks override, history override, and custom entries. Use when the user asks to migrate or adapt an existing web page into extension UI.
 ---
 

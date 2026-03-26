@@ -30963,7 +30963,7 @@ Next, [navigate]{#534317_2_En_14_Chapter.xhtml_ITerm85} to a valid web page like
 
 <figure id="Fig18" class="Figure">
 <div id="534317_2_En_14_Chapter.xhtml_MO18" class="MediaObject">
-<img src="/app/temp/1773197898499_images/images/534317_2_En_14_Chapter/534317_2_En_14_Fig18_HTML.jpg" class="ImageStyle3" alt="Screenshot of the Wikipedia homepage in a web browser. The page displays the Wikipedia logo and the phrase &quot;The Free Encyclopedia&quot; at the top. Below, there are links to different language versions of Wikipedia, including English, Español, Deutsch, 日本語, Русский, and Français, each with the number of articles available. The browser&#39;s developer console is open at the bottom, showing a log with messages: &quot;Content script initialized!&quot; and &quot;Content script received response: {farewell: &#39;goodbye&#39;}&quot;." />
+<img src="/app/temp/1773197898499_images/images/534317_2_En_14_Chapter/534317_2_En_14_Fig18_HTML.jpg" class="ImageStyle3" alt="Screenshot of the Wikipedia homepage in a web browser. The page displays the Wikipedia logo and the phrase &quot;The Free Encyclopedia&quot; at the top. Below, there are links to different language versions of Wikipedia, including English, Español, Deutsch, Japanese, Русский, and Français, each with the number of articles available. The browser&#39;s developer console is open at the bottom, showing a log with messages: &quot;Content script initialized!&quot; and &quot;Content script received response: {farewell: &#39;goodbye&#39;}&quot;." />
 </div>
 <figcaption><div class="CaptionContent">
 <span class="CaptionNumber">Figure 14-18</span>
@@ -31103,7 +31103,7 @@ In Xcode, build the app for [iOS]{#534317_2_En_14_Chapter.xhtml_ITerm89}, and us
 
 <figure id="Fig28" class="Figure">
 <div id="534317_2_En_14_Chapter.xhtml_MO28" class="MediaObject">
-<img src="/app/temp/1773197898499_images/images/534317_2_En_14_Chapter/534317_2_En_14_Fig28_HTML.jpg" class="ImageStyle15" alt="Screenshot of a mobile interface displaying a Wikipedia page with a bright pink background. The page lists article counts in various languages, including English, Español, Русский, Deutsch, Français, Italiano, 中文, and Português. A popup at the bottom reads &quot;I&#39;m the popup page!&quot; with options to &quot;Change background color&quot; and &quot;Send native message.&quot; The top bar shows the time as 2:54 and includes settings and search icons." />
+<img src="/app/temp/1773197898499_images/images/534317_2_En_14_Chapter/534317_2_En_14_Fig28_HTML.jpg" class="ImageStyle15" alt="Screenshot of a mobile interface displaying a Wikipedia page with a bright pink background. The page lists article counts in various languages, including English, Español, Русский, Deutsch, Français, Italiano, Chinese, and Português. A popup at the bottom reads &quot;I&#39;m the popup page!&quot; with options to &quot;Change background color&quot; and &quot;Send native message.&quot; The top bar shows the time as 2:54 and includes settings and search icons." />
 </div>
 <figcaption><div class="CaptionContent">
 <span class="CaptionNumber">Figure 14-28</span>

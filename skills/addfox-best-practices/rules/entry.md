@@ -6,7 +6,7 @@ Detailed guidance on Addfox's entry configuration methods, applicable scenarios 
 
 ## Overview of configuration methods
 
-Addfox 支持三种入口配置方式，按推荐优先级排序：
+Addfox supports three entry configuration methods, ranked by recommended priority:
 
 | Priority | Configuration method | Applicable scenarios | Complexity |
 |--------|----------|----------|--------|
@@ -39,7 +39,7 @@ app/
 │   └── index.tsx
 ├── sidepanel/ → Chrome sidebar
 │   └── index.tsx
-├── devtools/            → DevTools 页面
+├── devtools/            → DevTools page
 │   └── index.tsx
 ├── offscreen/           → Offscreen document (MV3)
 │   └── index.tsx
@@ -91,7 +91,7 @@ export default defineConfig({
 | `offscreen` | `offscreen/index.html` | ✅ | - | MV3 off-screen document |
 | `sandbox` | `sandbox/index.html` | ✅ | `sandbox.pages` | Sandbox pages |
 | `newtab` | `newtab/index.html` | ✅ | `chrome_url_overrides.newtab` | New tab page |
-| `bookmarks` | `bookmarks/index.html` | ✅ | `chrome_url_overrides.bookmarks` | 书签页 |
+| `bookmarks` | `bookmarks/index.html` | ✅ | `chrome_url_overrides.bookmarks` | Bookmarks page |
 | `history` | `history/index.html` | ✅ | `chrome_url_overrides.history` | History page |
 
 ### Manifest configuration of File-based Entry
@@ -202,7 +202,7 @@ export default defineConfig({
 // Simple path configuration
     'custom-script': 'scripts/custom.ts',
     
-    // 带 HTML 生成的配置
+    // Configuration with HTML generation
     'custom-page': {
       src: 'pages/custom.tsx',
 html: true // Automatically generate HTML
@@ -242,7 +242,7 @@ type EntryConfigValue =
 | `string` | Entry file path | `'scripts/helper.ts'` |
 | `{ src: string }` | Explicitly specify the source file | `{ src: 'pages/app.tsx' }` |
 | `{ src, html: true }` | Automatically generate HTML | `{ src: 'popup/main.tsx', html: true }` |
-| `{ src, html: string }` | 使用模板 HTML | `{ src: 'popup/main.tsx', html: 'tpl/popup.html' }` |
+| `{ src, html: string }` | Use an HTML template | `{ src: 'popup/main.tsx', html: 'tpl/popup.html' }` |
 | `false` | Disable reserved entry | `{ popup: false }` |
 
 ### Common usage scenarios
@@ -252,7 +252,7 @@ type EntryConfigValue =
 ```ts
 export default defineConfig({
   entry: {
-// 主 content script
+// Primary content script
     'content': 'content/main.ts',
 //Additional injection script
     'content-injected': 'content/injected.ts',
@@ -263,7 +263,7 @@ export default defineConfig({
     content_scripts: [
       {
         matches: ['<all_urls>'],
-js: ['content/index.js']           // 主 content script
+js: ['content/index.js']           // Primary content script
       },
       {
         matches: ['https://www.youtube.com/*'],
@@ -400,7 +400,7 @@ Need to create a portal?
   ```ts
 // ❌ Not recommended: use both file-based and entry to configure the entry with the same name
   entry: {
-    popup: 'custom/popup.tsx'  // 会覆盖 file-based 的 app/popup/
+    popup: 'custom/popup.tsx'  // This overrides the file-based app/popup/
   }
   ```
 - **Do not repeatedly define reserved entries in entry**: unless there are special needs
@@ -460,6 +460,6 @@ resources: ['helper/index.js'], // Correct! Use entry name
 ## Related documents
 
 - [SKILL.md](../SKILL.md) — Master Best Practice Guide
-- [reference.md](../reference.md) — 详细配置参考
+- [reference.md](../reference.md) — Detailed configuration reference
 - [manifest-fields.md](./manifest-fields.md) — Manifest fields reference
 - [content-ui.md](./content-ui.md) — Content UI injection guide

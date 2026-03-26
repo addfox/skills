@@ -1,6 +1,6 @@
 ---
 name: migrate-to-addfox
-version: 0.1.0
+version: 0.1.1
 description: Migrate existing browser extensions from WXT, Plasmo, Extension.js/CRXJS, or vanilla setups to Addfox with incremental validation.
 metadata:
   tags: addfox, migration, wxt, plasmo, extension-js, crxjs, browser-extension
