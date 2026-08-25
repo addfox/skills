@@ -371,6 +371,7 @@ export async function sendMessage(action: string, payload?: any) {
 - **Messaging**: Plasmo has file-based message handlers; Addfox uses standard runtime messaging
 - **Content UI**: Plasmo has `getOverlayAnchor`; Addfox has `defineShadowContentUI`
 - **Plugins**: Plasmo has its own module system; Addfox uses standard Rsbuild plugins
+- **Dev browser profile**: Addfox starts with a fresh browser profile every run by default. To keep login state between runs, pass `--keep-browser-profile` or set `keepBrowserProfile: true` in config (per-browser: `browser: { chrome: { keepBrowserProfile: true } }`). Custom browser binary / profile dir: `browser: { chrome: { path: "...", profile: "..." } }`
 
 ## Feature migration
 

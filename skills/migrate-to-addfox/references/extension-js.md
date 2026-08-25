@@ -188,6 +188,8 @@ Replace `vite build` / `vite dev` with `addfox dev` and `addfox build`.
 
 For React/Vue/Svelte, use Addfox's `plugins` array with Rsbuild plugins.
 
+Note: every dev run starts with a fresh browser profile by default (nothing carries over between runs). Pass `--keep-browser-profile` or set `keepBrowserProfile: true` in `addfox.config.ts` to preserve the profile; use `browser: { chrome: { path, profile, keepBrowserProfile } }` for a custom browser binary or profile directory.
+
 ### 5. Environment variables
 
 Replace Vite's `import.meta.env` usage with `process.env` and `envPrefix`:

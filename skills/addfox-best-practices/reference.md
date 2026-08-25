@@ -35,9 +35,12 @@ export default defineConfig({
 - `manifest`: single object or split by browser (`chromium` / `firefox`)
 - `entry`: custom entries when reserved entry discovery is not enough
 - `plugins`: Rsbuild plugins (`@rsbuild/plugin-react`, vue plugin, etc.)
-- `rsbuild`: advanced bundler overrides
+- `rsbuild`: advanced bundler overrides (arbitrary Rsbuild/Rspack config)
 - `appDir`: source root for entries (default `app`)
 - `outDir`: output under `.addfox` (default `extension`)
+- `browser`: per-browser launch options — `path` (executable), `profile` (custom user-data dir), `keepBrowserProfile` (per-browser override)
+- `keepBrowserProfile`: keep the dev browser profile between runs (default `false`: fresh profile each run; CLI `--keep-browser-profile` overrides config)
+- `buildCache`: persistent Rspack build cache for faster dev restarts (default `true`; files in `.addfox/cache/build`, or pass `{ cacheDirectory }`)
 
 ## Entry behavior
 

@@ -329,6 +329,7 @@ export default {
 - **Content UI**: WXT has `createShadowRootUi`; Addfox has `defineShadowContentUI` from `@addfox/utils`
 - **Build tool**: WXT uses Vite; Addfox uses Rsbuild
 - **Config**: WXT uses `wxt.config.ts` with modules; Addfox uses `addfox.config.ts` with `plugins` array
+- **Dev browser profile**: WXT persists its dev profile between runs; Addfox starts with a fresh browser profile every run by default. To keep login state, pass `--keep-browser-profile` or set `keepBrowserProfile: true` in config (per-browser: `browser: { chrome: { keepBrowserProfile: true } }`). Custom browser binary / profile dir: `browser: { chrome: { path: "...", profile: "..." } }`
 
 ## Feature migration
 

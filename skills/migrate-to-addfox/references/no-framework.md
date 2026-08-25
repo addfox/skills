@@ -216,6 +216,8 @@ Replace any manual copy/bundle scripts with `addfox dev` and `addfox build`.
 }
 ```
 
+Note: every dev run starts with a fresh browser profile by default (nothing carries over between runs). Pass `--keep-browser-profile` or set `keepBrowserProfile: true` in `addfox.config.ts` to preserve the profile; use `browser: { chrome: { path, profile, keepBrowserProfile } }` for a custom browser binary or profile directory.
+
 Icons and static assets: place under `app/` and reference in manifest, or use `rsbuild.output.copy` for a `public/`-style folder:
 
 ```ts
